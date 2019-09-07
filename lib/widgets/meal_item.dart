@@ -11,8 +11,7 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   MealItem(
-      {
-      @required this.id,
+      {@required this.id,
       @required this.title,
       @required this.imageUrl,
       @required this.duration,
@@ -20,30 +19,43 @@ class MealItem extends StatelessWidget {
       @required this.complexity});
 
   String get complexityText {
-    switch(complexity){
-      case Complexity.Simple: return "Simple"; break;
-      case Complexity.Hard: return "Hard"; break;
-      case Complexity.Challenging: return "Challenging"; break;
+    switch (complexity) {
+      case Complexity.Simple:
+        return "Simple";
+        break;
+      case Complexity.Hard:
+        return "Hard";
+        break;
+      case Complexity.Challenging:
+        return "Challenging";
+        break;
       default: break;
     }
-    }
+  }
 
   String get affordibilityText {
-    switch(affordability){
-      case Affordability.Luxurious: return "Expensive"; break;
-      case Affordability.Pricey: return "Pricey"; break;
-      case Affordability.Affordable: return "Affordable"; break;
+    switch (affordability) {
+      case Affordability.Luxurious:
+        return "Expensive";
+        break;
+      case Affordability.Pricey:
+        return "Pricey";
+        break;
+      case Affordability.Affordable:
+        return "Affordable";
+        break;
       default: break;
     }
-    }
+  }
 
   void selectMeal(BuildContext context) {
     Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: id);
   }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>selectMeal(context),
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 4,
@@ -83,42 +95,42 @@ class MealItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    Icon(
-                      Icons.schedule,
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.schedule,
+                        ),
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Text('$duration mins'),
+                      ],
                     ),
-                    SizedBox(
-                      width: 6,
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.work,
+                        ),
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Text(complexityText),
+                      ],
                     ),
-                    Text('$duration mins'),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.work,
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.attach_money,
+                        ),
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Text(affordibilityText),
+                      ],
                     ),
-                    SizedBox(
-                      width: 6,
-                    ),
-                    Text(complexityText),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.attach_money,
-                    ),
-                    SizedBox(
-                      width: 6,
-                    ),
-                    Text(affordibilityText),
-                  ],
-                ),
-              ]),
+                  ]),
             ),
           ],
         ),

@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 
-class MealDetailScreen extends StatelessWidget {
+class MealDetailScreen extends StatefulWidget {
   static const routeName = '/meal-detail';
 
+  final Function toggleFav;
+  final Function isFav;
+  MealDetailScreen(this.toggleFav, this.isFav);
+
+  @override
+  _MealDetailScreenState createState() => _MealDetailScreenState();
+}
+
+class _MealDetailScreenState extends State<MealDetailScreen> {
   Widget buildSectionTitle(BuildContext context, String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -78,6 +87,15 @@ class MealDetailScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          widget.toggleFav(mealId);
+        },
+        child: Icon(
+          Icons.favorite,
+          color: widget.isFav(mealId) ? Colors.red : Colors.black,
         ),
       ),
     );

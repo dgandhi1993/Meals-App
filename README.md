@@ -1,16 +1,10 @@
 # Meals App
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+In this app, you can:
+- View a list of multiple meal categories
+- View a list of meals in those categories
+- View the details of a particular meal
+- Mark a meal as favourite
+- View a list of all favourite meals
+- Apply multiple filters to the meals shown from the hamburger menu
+- Switch between the meal category screen and the favourite screen using the bottom navigation bar
